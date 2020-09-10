@@ -1,0 +1,5 @@
+#!/bin/bash
+set -euxo pipefail
+
+source .env.local
+nohup go run boilerplate_go_api_server.go >> boilerplate_go_api_server.go.log 2>&1 &

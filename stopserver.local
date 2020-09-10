@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euxo pipefail
+
+kill -9 $(ps -ef | grep boilerplate_go_api_server | awk '{print $2'})
