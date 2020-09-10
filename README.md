@@ -9,6 +9,11 @@ We will use:
 
 - Go 1.14 installed
 - Basic Unix/Linux skills
+- a .env.local file that looks like this:
+
+```
+export PORT=3000
+```
 
 # Usage
 
