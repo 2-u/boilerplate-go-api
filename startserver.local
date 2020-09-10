@@ -1,5 +1,14 @@
 #!/bin/bash
 set -euxo pipefail
 
+# load local env vars
 source .env.local
+
+# format go code
+gofmt -w .
+
+# test the code
+go test
+
+# start the server in the background
 nohup go run boilerplate_go_api_server.go >> boilerplate_go_api_server.go.log 2>&1 &

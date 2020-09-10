@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"net/http"
 	"os"
 
+	eh "github.com/2-u/boilerplate-go-api/echo_handlers"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -19,15 +19,9 @@ func main() {
 	e.Use(middleware.CORS())
 
 	// Routes
-	e.GET("/", HealthCheck)
+	e.GET("/", eh.HealthCheck)
 
 	// Start server
 	serverPort := fmt.Sprintf(":%s", os.Getenv("PORT"))
 	e.Logger.Fatal(e.Start(serverPort))
-}
-
-func HealthCheck(c echo.Context) error {
-	return c.JSON(http.StatusOK, map[string]interface{}{
-		"data": "Server is up and running",
-	})
 }
